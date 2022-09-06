@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/drgomesp/go-libp2p-grpc/proto/v1";
+
+import "google/api/annotations.proto";
+
+message InfoRequest {}
+
+message InfoResponse {
+  string id = 1;
+  repeated string addresses = 2;
+  repeated string protocols = 3;
+  repeated string peers = 4;
+}
+
+service NodeInfoService {
+  rpc Info(InfoRequest) returns (InfoResponse) {
+    option (google.api.http) = {
+        get: "/v1/nodeinfo"
+    };
+  }
+}

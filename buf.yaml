@@ -1,0 +1,12 @@
+version: v1
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT
+
+name: buf.build/drgomesp/go-libp2p-nodeinfo
+
+deps:
+  - buf.build/googleapis/googleapis

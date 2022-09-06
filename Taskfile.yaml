@@ -1,0 +1,15 @@
+version: "3"
+
+tasks:
+
+  build:
+    deps:
+      - build:proto
+    silent: false
+
+  build:proto:
+    cmds:
+      - buf mod update
+      - buf lint
+      - buf generate
+    silent: false
