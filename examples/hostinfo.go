@@ -9,7 +9,6 @@ import (
 	"log"
 	mr "math/rand"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/libp2p/go-libp2p"
 	"github.com/libp2p/go-libp2p/core/crypto"
@@ -58,8 +57,9 @@ func main() {
 		hostinfo.WithHttpServeMux(runtime.NewServeMux()),
 	)
 
-	res, err := svc.Info(ctx, nil)
-	spew.Dump(res)
+	go svc.ListenAndServe()
+
+	log.Printf("visit: http://localhost%s/v1/hostinfo", *httpAddr)
 
 	<-ctx.Done()
 }

@@ -5,7 +5,27 @@
 [![build](https://github.com/drgomesp/go-libp2p-grpc/actions/workflows/go-test.yml/badge.svg?style=squared)](https://github.com/drgomesp/go-libp2p-grpc/actions)
 [![codecov](https://codecov.io/gh/drgomesp/go-libp2p-grpc/branch/main/graph/badge.svg?token=BRMFJRJV2X)](https://codecov.io/gh/drgomesp/go-libp2p-grpc)
 
-> 
+
+> A pluggable libp2p host service that exposes general information about the host and the network.
+
+```bash
+$ curl http://localhost:4000/v1/hostinfo | jq
+{
+  "id": "QmRmkUZCHZ1LdvayoKFtevmzE7RzkVVjGKA6uZ9yHoPCUW",
+  "addresses": [
+    "/ip4/127.0.0.1/tcp/46079/p2p/QmRmkUZCHZ1LdvayoKFtevmzE7RzkVVjGKA6uZ9yHoPCUW"
+  ],
+  "protocols": [
+    "/p2p/id/delta/1.0.0",
+    "/ipfs/id/1.0.0",
+    "/ipfs/id/push/1.0.0",
+    "/ipfs/ping/1.0.0",
+    "/libp2p/grpc/1.0.0"
+  ],
+  "peers": []
+}
+
+```
 
 ## Table of Contents
 
