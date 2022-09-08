@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"crypto/rand"
-	"flag"
 	"fmt"
 	"io"
 	"log"
@@ -40,26 +39,26 @@ func makeBasicHost(listenPort int, randseed int64) (host.Host, error) {
 }
 
 func main() {
-	listenPort := flag.Int("p", 0, "wait for incoming connections")
-	httpAddr := flag.String("h", ":4000", "HTTP listen address")
-	seedF := flag.Int64("seed", 0, "set random seed for id generation")
+	host, err := libp2p.New()
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	flag.Parse()
+	// create a mux to handle the grpc gateway requests
+	// this can also be combined with other muxes
+	mux := runtime.NewServeMux()
+
 	ctx := context.Background()
-
-	h, err := makeBasicHost(*listenPort, *seedF)
-	check(err)
-
 	svc, err := hostinfo.NewService(
 		ctx,
-		h,
-		hostinfo.WithGrpcGatewayAddr(*httpAddr),
-		hostinfo.WithHttpServeMux(runtime.NewServeMux()),
+		host,
+		hostinfo.WithGrpcGatewayAddr(":4000"),
+		hostinfo.WithHttpServeMux(mux),
 	)
 
 	go svc.ListenAndServe()
 
-	log.Printf("visit: http://localhost%s/v1/hostinfo", *httpAddr)
+	log.Println("visit: http://localhost:4000/v1/hostinfo")
 
 	<-ctx.Done()
 }

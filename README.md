@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/drgomesp/go-libp2p-grpc/branch/main/graph/badge.svg?token=BRMFJRJV2X)](https://codecov.io/gh/drgomesp/go-libp2p-hostinfo)
 
 
-> A pluggable libp2p host service that exposes general information about the host and the network.
+> A lightweight libp2p host service that exposes general information about the host and the network.
 
 ```bash
 $ curl http://localhost:4000/v1/hostinfo | jq
@@ -42,6 +42,10 @@ go get github.com/drgomesp/go-libp2p-hostinfo
 ```
 
 ## Features
+
+- [x] A gRPC service that exposes general host/network information
+- [x] HTTP/OpenAPI gateway support
+- [ ] Support for configurable info to expose
 
 ## Usage
 
