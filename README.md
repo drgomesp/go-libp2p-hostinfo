@@ -3,7 +3,7 @@
 [![madeby](https://img.shields.io/badge/made%20by-%40drgomesp-blue)](https://github.com/drgomesp/)
 [![Go Report Card](https://goreportcard.com/badge/github.com/drgomesp/go-libp2p-grpc)](https://goreportcard.com/report/github.com/drgomesp/go-libp2p-grpc)
 [![build](https://github.com/drgomesp/go-libp2p-grpc/actions/workflows/go-test.yml/badge.svg?style=squared)](https://github.com/drgomesp/go-libp2p-grpc/actions)
-[![codecov](https://codecov.io/gh/drgomesp/go-libp2p-grpc/branch/main/graph/badge.svg?token=BRMFJRJV2X)](https://codecov.io/gh/drgomesp/go-libp2p-grpc)
+[![codecov](https://codecov.io/gh/drgomesp/go-libp2p-grpc/branch/main/graph/badge.svg?token=BRMFJRJV2X)](https://codecov.io/gh/drgomesp/go-libp2p-hostinfo)
 
 
 > A pluggable libp2p host service that exposes general information about the host and the network.
@@ -38,13 +38,37 @@ $ curl http://localhost:4000/v1/hostinfo | jq
 ## Install
 
 ```bash
-go get github.com/drgomesp/go-libp2p-grpc
+go get github.com/drgomesp/go-libp2p-hostinfo
 ```
 
 ## Features
 
-
 ## Usage
+
+```go
+host, err := libp2p.New()
+if err != nil {
+    log.Fatal(err)
+}
+
+// create a mux to handle the grpc gateway requests
+// this can also be combined with other muxes
+mux := runtime.NewServeMux()
+
+ctx := context.Background()
+svc, err := hostinfo.NewService(
+    ctx,
+    host,
+    hostinfo.WithGrpcGatewayAddr(":4000"),
+    hostinfo.WithHttpServeMux(mux),
+)
+
+go svc.ListenAndServe()
+
+log.Println("visit: http://localhost:4000/v1/hostinfo")
+
+<-ctx.Done()
+```
 
 ## Contributing
 
