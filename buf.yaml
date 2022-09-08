@@ -6,7 +6,7 @@ lint:
   use:
     - DEFAULT
 
-name: buf.build/drgomesp/go-libp2p-nodeinfo
+name: buf.build/drgomesp/go-libp2p-hostinfo
 
 deps:
   - buf.build/googleapis/googleapis

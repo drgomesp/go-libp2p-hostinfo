@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "proto/v1/node.proto",
+    "title": "proto/v1/host.proto",
     "version": "version not set"
   },
   "tags": [
     {
-      "name": "NodeInfoService"
+      "name": "HostInfoService"
     }
   ],
   "consumes": [
@@ -16,9 +16,9 @@
     "application/json"
   ],
   "paths": {
-    "/v1/nodeinfo": {
+    "/v1/hostinfo": {
       "get": {
-        "operationId": "NodeInfoService_Info",
+        "operationId": "HostInfoService_Info",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -34,7 +34,7 @@
           }
         },
         "tags": [
-          "NodeInfoService"
+          "HostInfoService"
         ]
       }
     }

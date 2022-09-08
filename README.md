@@ -1,4 +1,4 @@
-# go-libp2p-nodeinfo
+# go-libp2p-hostinfo
 
 [![madeby](https://img.shields.io/badge/made%20by-%40drgomesp-blue)](https://github.com/drgomesp/)
 [![Go Report Card](https://goreportcard.com/badge/github.com/drgomesp/go-libp2p-grpc)](https://goreportcard.com/report/github.com/drgomesp/go-libp2p-grpc)

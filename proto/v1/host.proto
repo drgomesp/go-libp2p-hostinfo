@@ -15,10 +15,10 @@ message InfoResponse {
   repeated string peers = 4;
 }
 
-service NodeInfoService {
+service HostInfoService {
   rpc Info(InfoRequest) returns (InfoResponse) {
     option (google.api.http) = {
-        get: "/v1/nodeinfo"
+        get: "/v1/hostinfo"
     };
   }
 }
