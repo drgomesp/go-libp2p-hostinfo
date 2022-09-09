@@ -27,6 +27,9 @@ func main() {
 		hostinfo.WithGrpcGatewayAddr(":4000"),
 		hostinfo.WithHttpServeMux(mux),
 	)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	go svc.ListenAndServe()
 

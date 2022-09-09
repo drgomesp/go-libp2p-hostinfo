@@ -1,7 +1,7 @@
 # go-libp2p-hostinfo
 
 [![madeby](https://img.shields.io/badge/made%20by-%40drgomesp-blue)](https://github.com/drgomesp/)
-[![Go Report Card](https://goreportcard.com/badge/github.com/drgomesp/go-libp2p-hostinfo)](https://goreportcard.com/report/github.com/drgomesp/go-libp2p-hostinfo)
+[![Go Report Card](https://goreportcard.com/badge/github.com/drgomesp/go-libp2p-hostinfo)](https://goreportcard.com/badge/github.com/drgomesp/go-libp2p-hostinfo)
 [![build](https://github.com/drgomesp/go-libp2p-hostinfo/actions/workflows/go-test.yml/badge.svg?style=squared)](https://github.com/drgomesp/go-libp2p-grpc/actions)
 [![codecov](https://codecov.io/gh/drgomesp/go-libp2p-hostinfo/branch/main/graph/badge.svg?token=BRMFJRJV2X)](https://codecov.io/gh/drgomesp/go-libp2p-hostinfo)
 
