@@ -31,7 +31,7 @@ func WithHttpServeMux(mux *runtime.ServeMux) ServiceOption {
 }
 
 func NewService(ctx context.Context, host host.Host, opts ...ServiceOption) (*Service, error) {
-	svc := &Service{host: host}
+	svc := &Service{host: host, mux: runtime.NewServeMux()}
 
 	srv, err := libp2pgrpc.NewGrpcServer(
 		ctx,
